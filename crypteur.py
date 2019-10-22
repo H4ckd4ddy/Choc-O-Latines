@@ -8,7 +8,7 @@ import tweepy
 RESPONSES = [
     "On dit chiffrer, et pas crypter :)",
     "Le terme crypter ou cryptage pas reconnu par le dictionnaire de l’Académie française",
-    "Crypter voudrais dire chiffrer une donnée sans en connaître la clé ou la méthode et donc sans pouvoir le déchiffrer ensuite"
+    "Crypter voudrais dire chiffrer une donnée sans en connaître la clé ou la méthode et donc sans pouvoir la déchiffrer ensuite"
 ]
 
 class stream_listener(tweepy.StreamListener):
