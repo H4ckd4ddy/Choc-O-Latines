@@ -26,12 +26,15 @@ class stream_listener(tweepy.StreamListener):
         
         if 'décrypt' in tweet.text.lower() or 'décrypt' in tweet.text.lower():
             print('Decrypter... cela depend du contexte... donc... ca ira pour cette fois')
+            return
         
         if tweet.retweeted or 'RT @' in tweet.text:
             print('Je ne vais pas repondre à tout ceux qui retweet...')
+            return
 
         if 'crypt' in tweet.user.screen_name or 'chiffre' in tweet.user.screen_name:
             print('C\'est peut-etre un collegue de croisade contre le cryptage, je le laisse faire...')
+            return
 
         response = RESPONSES[random.randrange(0, len(RESPONSES))]
         self.api.update_status(f"@{tweet.user.screen_name} {response}", tweet.id)
