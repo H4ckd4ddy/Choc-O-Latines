@@ -5,6 +5,8 @@ import random
 import json
 import tweepy
 
+TRIGGERS = ["crypter", "cryptez", "crypté", "cryptée", "cryptés", "cryptées", "cryptage"]
+
 RESPONSES = [
     "On dit chiffrer, et pas crypter :)",
     "Le terme crypter ou cryptage pas reconnu par le dictionnaire de l’Académie française",
@@ -20,6 +22,9 @@ class stream_listener(tweepy.StreamListener):
     def on_status(self, tweet):
 
         if tweet.user.screen_name == "crypteur":
+            return
+
+        if not any(trigger in tweet.text.lower() for trigger in TRIGGERS):
             return
         
         print(f"{tweet.user.screen_name}:{tweet.text}")
@@ -53,5 +58,5 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 tweets_listener = stream_listener(api)
 stream = tweepy.Stream(api.auth, tweets_listener)
-stream.filter(track=["crypter", "cryptez", "crypté", "cryptée", "cryptés", "cryptées", "cryptage"], languages=["fr"])
+stream.filter(track=TRIGGERS, languages=["fr"])
 
