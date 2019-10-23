@@ -17,11 +17,12 @@ python3 crypteur.py
 
 ##### With docker :
 ```
-docker run -d protechtion/crypteur \
+docker run \
 --env CONSUMER_API=my_consumer \
 --env CONSUMER_API_SECRET=my_consumer_secret \
 --env ACCES_TOKEN=my_token \
---env ACCES_TOKEN_SECRET=my_token_secret
+--env ACCES_TOKEN_SECRET=my_token_secret \
+-d protechtion/crypteur
 ```
 
 ##### With docker-compose :
