@@ -19,7 +19,7 @@ class stream_listener(tweepy.StreamListener):
 
     def on_status(self, tweet):
 
-        if tweet.user.screen_name != "crypteur":
+        if tweet.user.screen_name == "crypteur":
             return
         
         print(f"{tweet.user.screen_name}:{tweet.text}")
@@ -27,7 +27,7 @@ class stream_listener(tweepy.StreamListener):
         if 'décrypt' in tweet.text.lower() or 'décrypt' in tweet.text.lower():
             print('Decrypter... cela depend du contexte... donc... ca ira pour cette fois')
         
-        if tweet.retweeted or 'RT @' not in tweet.text:
+        if tweet.retweeted or 'RT @' in tweet.text:
             print('Je ne vais pas repondre à tout ceux qui retweet...')
 
         if 'crypt' in tweet.user.screen_name or 'chiffre' in tweet.user.screen_name:
