@@ -37,7 +37,7 @@ class stream_listener(tweepy.StreamListener):
             print('Je ne vais pas repondre à tout ceux qui retweet...')
             return
 
-        if 'crypt' in tweet.user.screen_name or 'chiffre' in tweet.user.screen_name:
+        if 'crypt' in tweet.user.screen_name.lower() or 'chiffre' in tweet.user.screen_name.lower():
             print('C\'est peut-etre un collegue de croisade contre le cryptage, je le laisse faire...')
             return
 
