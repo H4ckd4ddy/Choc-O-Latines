@@ -25,6 +25,10 @@ class stream_listener(tweepy.StreamListener):
 
         if not any(trigger in tweet.text.lower() for trigger in TRIGGERS):
             return
+
+        if 'chocolatine' in tweet.text.lower():
+            print('Le debat est deja lancé, je ne vais pas en rajouter...')
+            return
         
         print(f"{tweet.user.screen_name}:{tweet.text}")
         
