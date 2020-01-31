@@ -20,7 +20,7 @@ class stream_listener(tweepy.StreamListener):
 
     def on_status(self, tweet):
 
-        if tweet.user.screen_name.lower() == "choc-o-latine":
+        if tweet.user.screen_name.lower() == "choc_o_latine":
             return
 
         if not any(trigger in tweet.text.lower() for trigger in TRIGGERS):
