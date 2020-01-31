@@ -5,12 +5,11 @@ import random
 import json
 import tweepy
 
-TRIGGERS = ["crypter", "cryptez", "crypté", "cryptée", "cryptés", "cryptées", "cryptage"]
+TRIGGERS = ["pain au chocolat", "pains au chocolat"]
 
 RESPONSES = [
-    "On dit chiffrer, et pas crypter :)",
-    "Le terme crypter ou cryptage pas reconnu par le dictionnaire de l’Académie française",
-    "Crypter voudrait dire chiffrer une donnée sans en connaître la clé ou la méthode et donc sans pouvoir la déchiffrer ensuite"
+    "On dit CHOCOLATINE !!!",
+    "Un pain au chocolat, c'est juste un bout de pain avec du chocolat"
 ]
 
 class stream_listener(tweepy.StreamListener):
@@ -21,24 +20,13 @@ class stream_listener(tweepy.StreamListener):
 
     def on_status(self, tweet):
 
-        if tweet.user.screen_name == "crypteur":
-            return
-
         if not any(trigger in tweet.text.lower() for trigger in TRIGGERS):
             return
         
         print(f"{tweet.user.screen_name}:{tweet.text}")
         
-        if 'décrypt' in tweet.text.lower() or 'décrypt' in tweet.text.lower():
-            print('Decrypter... cela depend du contexte... donc... ca ira pour cette fois')
-            return
-        
         if tweet.retweeted or 'RT @' in tweet.text:
             print('Je ne vais pas repondre à tout ceux qui retweet...')
-            return
-
-        if 'crypt' in tweet.user.screen_name.lower() or 'chiffre' in tweet.user.screen_name.lower():
-            print('C\'est peut-etre un collegue de croisade contre le cryptage, je le laisse faire...')
             return
 
         response = RESPONSES[random.randrange(0, len(RESPONSES))]

@@ -1,12 +1,11 @@
-# Crypteur
+# Choc-O-Latine
 
-In french, the term "crypter" is incorrect, we have to use "chiffrer".
-So we just make a little Twitter bot to remind that to all peoples who use incorrect term :)
+Expliquons au monde le nom des bonnes choses :)
 
 ##### Usage :
 ```
-git clone https://github.com/ProTechTion/Crypteur.git
-cd Crypteur
+git clone https://github.com/H4ckd4ddy/Choc-O-Latine.git
+cd Choc-O-Latine
 pip3 install -r requirements.txt
 CONSUMER_API=[your consumer API]
 CONSUMER_API_SECRET=[your consumer API secret]
@@ -22,15 +21,15 @@ docker run \
 --env CONSUMER_API_SECRET=my_consumer_secret \
 --env ACCES_TOKEN=my_token \
 --env ACCES_TOKEN_SECRET=my_token_secret \
--d protechtion/crypteur
+-d hackdaddy/Choc-O-Latine
 ```
 
 ##### With docker-compose :
 ```
 version: '3'
 services:
-  crypteur:
-    image: protechtion/crypteur
+  Choc-O-Latine:
+    image: hackdaddy/Choc-O-Latine
     environment:
       CONSUMER_API:
       CONSUMER_API_SECRET:
